@@ -2,8 +2,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
-    margin-top: 32px;
+    padding: 36px 40px 0;
+}
+
+.navigation {
+    position: fixed;
+    z-index: 4;
+    justify-content: center;
+    top: 23px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .navigation__list {
@@ -13,6 +21,7 @@
     list-style: none;
     padding: 1.8rem 2.4rem;
     background-color: var(--nav-bg);
+    backdrop-filter: blur(2px);
     border-radius: 64px;
 }
 

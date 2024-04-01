@@ -6,15 +6,29 @@
   background-color: #ffffff;
 
   --accent: #FF4D00;
+  --accent-hover: #542322;
   --dark: #2C2C2F;
   --nav-link: #EAEAEACC;
   --nav-link-active: #EAEAEA;
   --nav-bg: #0D0D0DCC;
+  --gray: #7B7B7B;
+  --gray-btn24:#7B7B7B3D;
+  --gray-btn40:#7B7B7B66;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@supports (color: color(display-p3 0.9237 0.3588 0.164)) {
+  :root {
+    --accent: color(display-p3 0.9237 0.3588 0.164);
+  }
+}
+
+::selection {
+  background: #FF4D0066;
 }
 
 html {
