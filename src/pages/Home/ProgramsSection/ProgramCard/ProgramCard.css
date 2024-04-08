@@ -1,0 +1,121 @@
+.program-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 490px;
+    height: 100%;
+    align-items: start;
+}
+
+.program-card__badge {
+    background: linear-gradient(90deg, #FFFCE2 0%, #FFE2D1 100%);
+    padding: 6px 12px;
+    border-radius: 64px;
+    margin-bottom: 12px;
+}
+
+.program-card--magistracy .program-card__body {
+    background-color: #F7F7F8;
+}
+
+.program-card--magistracy .program-card__badge {
+    background: linear-gradient(90deg, #FFF0C7 0%, #CEFFF9 100%);
+    & .program-card__level {
+        color: #02362D;
+    }
+}
+
+.program-card__level {
+    font-size: 1.2rem;
+    margin: 2px;
+    font-weight: 600;
+    color: #B13C09;
+}
+
+.program-card__body {
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F2EB;
+    border-radius: 32px;
+    padding: 8px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.program-card__info {
+    padding: 16px;
+}
+
+.program-card__name {
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0 0 10px;
+}
+
+.program-card__code {
+    font-size: 1.4rem;
+    color: var(--gray);
+    margin: 0 0 5px;
+}
+
+.program-card__desc {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    margin: 0 0 16px;
+}
+
+.program-card__places {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.program-card__place {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 100px;
+}
+
+.program-card__num-place {
+    font-size: 4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.program-card__type-place {
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--gray);
+    text-align: center;
+    margin: 0;
+}
+
+.program-card__disciplines {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 8px;
+    background-color: white;
+    border-radius: 32px;
+}
+
+.program-card__discipline {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.program-card__name-discipline {
+    font-size: 1.6rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.program-card__action {
+    padding: 16px;
+}

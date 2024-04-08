@@ -1,0 +1,13 @@
+.rubric {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rubric__text {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 1px;
+}

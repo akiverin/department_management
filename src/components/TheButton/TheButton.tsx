@@ -2,12 +2,16 @@ import './TheButton.css'
 import { Link } from "react-router-dom";
 import React from "react";
 
-function TheButton({ children, to, href, onClick, shadow, accent, border, mini }: ButtonProps) {
+function TheButton({ children, to, href, onClick, shadow, accent, border, mini, full, dark, light, gray }: ButtonProps) {
   const buttonClass = "button" +
     (shadow ? " button--shadow" : "") +
     (accent ? " button--accent" : "") +
     (mini ? " button--mini" : "") +
-    (border ? " button--border" : "");
+    (border ? " button--border" : "") +
+    (full ? " button--full" : "") + 
+    (dark ? " button--dark" : "") + 
+    (light ? " button--light" : "") +
+    (gray ? " button--gray" : "");
   return (
     onClick ?
     <button onClick={onClick} className={buttonClass}>
@@ -35,6 +39,10 @@ type ButtonProps = {
   accent?: boolean;
   border?: boolean;
   mini?: boolean;
+  full?: boolean;
+  dark?: boolean;
+  light?: boolean;
+  gray?: boolean;
 }
 
 

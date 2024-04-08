@@ -1,11 +1,12 @@
 :root {
-  font-family: Helvetica, Inter, system-ui, Arial, Avenir, sans-serif;
+  font-family: Inter, system-ui, Arial, Avenir, sans-serif;
   font-weight: 400;
 
   color-scheme: light dark;
   background-color: #ffffff;
 
   --accent: #FF4D00;
+  --green: #02362D;
   --accent-hover: #542322;
   --dark: #2C2C2F;
   --nav-link: #EAEAEACC;
@@ -24,6 +25,15 @@
 @supports (color: color(display-p3 0.9237 0.3588 0.164)) {
   :root {
     --accent: color(display-p3 0.9237 0.3588 0.164);
+    --green: color(display-p3 0.0781 0.2078 0.1773);
+    --accent-hover: color(display-p3 0.3044 0.1484 0.1397);
+    --dark: color(display-p3 0.1723 0.1723 0.1823);
+    --nav-link: color(display-p3 0.9189 0.9189 0.9189 / 0.8);
+    --nav-link-active: color(display-p3 0.9189 0.9189 0.9189);
+    --nav-bg: color(display-p3 0.0509 0.0509 0.0509 / 0.8);
+    --gray: color(display-p3 0.4825 0.4825 0.4825);
+    --gray-btn24:color(display-p3 0.4825 0.4825 0.4825 / 0.24);
+    --gray-btn40:color(display-p3 0.4825 0.4825 0.4825 / 0.40);
   }
 }
 
@@ -47,6 +57,18 @@ html {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+@media screen and (max-width: 960px) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  html {
+    font-size: 44%;
+  }
 }
 
 @media (prefers-color-scheme: light) {

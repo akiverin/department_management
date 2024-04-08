@@ -1,6 +1,7 @@
 import TheButton from '@/components/TheButton/TheButton'
 import coverHero from '@assets/cover-hero.jpeg'
 import './Hero.css'
+import mpLogo from '@assets/polytechLogo.svg'
 
 function Hero() {
   return (
@@ -15,7 +16,10 @@ function Hero() {
                 </div>
                 <div className="hero__titles">
                     <h1 className="hero__title hero__title--name">Кафедра Менеджмент</h1>
-                    <h1 className="hero__title hero__title--university">Московский Политех</h1>
+                    <h1 className="hero__title hero__title--university">
+                        Московский Политех
+                        <img src={mpLogo} height="48" width="48" alt="Логотип Московского Политеха" className="hero__mp-logo" />
+                    </h1>
                     <h1 className="hero__title hero__title--slogan">Изучай и практикуйся!</h1>
                 </div>
                 <p className="hero__desc">
