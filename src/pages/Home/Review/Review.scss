@@ -1,0 +1,60 @@
+.review {
+	background-color: black;
+	color: white;
+	max-width: 1920px;
+	margin: 0 auto;
+	border-radius: 128px;
+}
+
+.review__wrapper {
+	max-width: 1260px;
+	margin: 0 auto;
+	padding: 144px 4vw 160px;
+}
+
+.review__content {
+	display: grid;
+	grid-template-columns: 7fr 9fr;
+	column-gap: 120px;
+}
+
+.review__image {
+	max-width: 100%;
+	max-height: 420px;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.review__title {
+	font-weight: 500;
+	font-size: 2.8rem;
+	line-height: 1.2;
+	margin: 40px 0;
+}
+
+.review__text {
+	font-size: 2rem;
+	line-height: 1.5;
+}
+
+.review__button {
+	cursor: pointer;
+	background: none;
+	border: none;
+	height: 46px;
+	width: 46px;
+	&:disabled {
+		cursor: default;
+		opacity: 0.2;
+	}
+}
+
+.review__icon {
+	width: 100%;
+	height: 100%;
+}
+
+.review__actions {
+	display: flex;
+	margin-top: 24px;
+}

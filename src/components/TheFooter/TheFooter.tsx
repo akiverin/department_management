@@ -88,7 +88,7 @@ function TheFooter() {
 						<ul className="footer__list">
 							<li className="footer__item">
 								<a href="vk.com" className="footer__link">
-									Главная
+									Вконтакте
 								</a>
 							</li>
 							<li className="footer__item">
