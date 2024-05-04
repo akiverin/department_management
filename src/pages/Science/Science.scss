@@ -1,0 +1,29 @@
+.science__wrapper {
+	max-width: 1600px;
+	margin: 0 auto;
+	padding: 120px 40px 20px;
+}
+
+.science__title {
+	font-size: 6.4rem;
+	line-height: 1.1;
+	font-weight: 400;
+	margin: 50px 18px 64px;
+}
+
+.science__events {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(364px, 1fr));
+	gap: 10px;
+}
+
+.science__card {
+	display: flex;
+	gap: 10px;
+}
+
+.science__event {
+	height: 492px;
+}

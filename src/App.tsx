@@ -6,6 +6,7 @@ import Home from '@pages/Home/Home'
 import Programs from '@pages/Programs/Programs'
 import NotFound from '@pages/NotFound/NotFound'
 import TheFooter from '@components/TheFooter/TheFooter'
+import Science from '@pages/Science/Science'
 
 function App() {
 	return (
@@ -14,6 +15,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/programs" element={<Programs />} />
+				<Route path="/science" element={<Science />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<TheFooter />
