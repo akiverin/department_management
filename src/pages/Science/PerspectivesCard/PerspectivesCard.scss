@@ -1,5 +1,6 @@
 .perspectives-card {
 	display: flex;
+	justify-content: space-between;
 	gap: 30px;
 	padding: 4px;
 	align-items: center;
@@ -9,7 +10,9 @@
 
 .perspectives-card__info {
 	max-width: 333px;
-	padding: 0 26px;
+	min-width: 300px;
+	width: 100%;
+	padding: 20px 0 20px 26px;
 }
 
 .perspectives-card__title {
@@ -36,20 +39,40 @@
 	gap: 16px;
 }
 
-.perspectives-card__value {
-	font-weight: 600;
-}
-
-.perspectives-card__images {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-	height: 100%;
-}
-
 .perspectives-card__cover {
 	max-width: 358px;
+	min-width: 220px;
 	border-radius: 16px;
 	object-fit: cover;
+	min-height: 384px;
+	width: 100%;
 	height: 100%;
+}
+
+@media screen and (max-width: 1250px) {
+	.perspectives-card {
+		width: fit-content;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.perspectives-card {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.perspectives-card {
+		gap: 10px;
+	}
+
+	.perspectives-card__info {
+		padding: 10px 16px 0 16px;
+		min-width: 140px;
+		width: auto;
+	}
+
+	.perspectives-card__cover {
+		max-height: 268px;
+		min-height: auto;
+	}
 }

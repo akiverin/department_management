@@ -46,3 +46,10 @@
 	padding: 1.3rem 1.7rem;
 	border-radius: 64px;
 }
+
+@media screen and (max-width: 1040px) {
+	.navigation {
+		bottom: 23px;
+		top: auto;
+	}
+}

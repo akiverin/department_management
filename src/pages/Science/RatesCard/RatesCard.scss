@@ -1,5 +1,6 @@
 .rates-card {
 	display: flex;
+	justify-content: space-between;
 	gap: 30px;
 	padding: 4px;
 	align-items: center;
@@ -9,7 +10,7 @@
 
 .rates-card__info {
 	max-width: 333px;
-	padding: 0 26px;
+	padding-left: 26px;
 }
 
 .rates-card__title {
@@ -47,13 +48,46 @@
 }
 
 .rates-card__cover {
-	max-width: 358px;
 	border-radius: 16px;
 	object-fit: cover;
+	max-width: 358px;
+	min-width: 220px;
+	width: 100%;
 	&--top {
 		height: 248px;
 	}
 	&--bottom {
+		height: 132px;
+	}
+}
+
+@media screen and (max-width: 1250px) {
+	.rates-card {
+		width: fit-content;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	.rates-card {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.rates-card__info {
+		padding: 10px 16px;
+		padding-bottom: 0;
+	}
+
+	.rates-card__images {
+		width: 100%;
+	}
+
+	.rates-card__cover {
+		max-width: none;
+	}
+
+	.rates-card__cover--top {
 		height: 132px;
 	}
 }

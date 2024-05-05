@@ -20,10 +20,22 @@
 }
 
 .science__card {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(580px, 1fr));
+	max-width: 100%;
 	gap: 10px;
+	justify-items: center;
 }
 
 .science__event {
 	height: 492px;
+}
+
+@media screen and (max-width: 780px) {
+	.science__card {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+		max-width: 100%;
+		gap: 10px;
+	}
 }

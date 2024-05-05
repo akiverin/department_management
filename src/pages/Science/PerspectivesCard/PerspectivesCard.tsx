@@ -19,13 +19,11 @@ function PerspectivesCard({ perspectives, image }: PerspectivesCardProps) {
 					))}
 				</ul>
 			</div>
-			<div className="perspectives-card__images">
-				<img
-					src={image}
-					alt="Cover for perspectives card"
-					className="perspectives-card__cover"
-				/>
-			</div>
+			<img
+				src={image}
+				alt="Cover for perspectives card"
+				className="perspectives-card__cover"
+			/>
 		</div>
 	)
 }
