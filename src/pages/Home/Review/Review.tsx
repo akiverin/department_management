@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Rubric from '@components/Rubric/Rubric'
 import photo1 from '@assets/photo1.jpg'
 import photo2 from '@assets/photo2.jpg'

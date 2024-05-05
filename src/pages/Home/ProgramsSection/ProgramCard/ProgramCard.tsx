@@ -50,8 +50,8 @@ function ProgramCard({ program }: ProgramCardProps) {
 						</div>
 					</div>
 					<ul className="program-card__disciplines">
-						{program.disciplines.map(discipline => (
-							<li className="program-card__discipline">
+						{program.disciplines.map((discipline, index) => (
+							<li className="program-card__discipline" key={index}>
 								<img
 									src={tick}
 									alt="Деокративная галочка для списка"

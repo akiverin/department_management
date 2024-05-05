@@ -53,3 +53,9 @@
 		top: auto;
 	}
 }
+
+@media screen and (max-width: 580px) {
+	.navigation {
+		display: none;
+	}
+}

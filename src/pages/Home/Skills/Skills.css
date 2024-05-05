@@ -108,3 +108,19 @@
     max-width: 280px;
     max-height: 205px;
 }
+
+.skills__cards {
+    padding: 0;
+}
+
+@media (max-width: 640px) {
+    .skills__terms {
+        transform: scale(0.5);
+        padding: 0;
+        margin: 0;
+    }
+
+    .skills__info {
+        padding: 0;
+    }
+}

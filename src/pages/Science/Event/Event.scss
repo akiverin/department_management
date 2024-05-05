@@ -39,3 +39,15 @@
 	margin-top: auto;
 	border-radius: 8px;
 }
+
+@media screen and (max-width: 780px) {
+	.event__name {
+		font-size: 1.8rem;
+	}
+	.event {
+		border-radius: 24px;
+	}
+	.event::before {
+		border-radius: 24px;
+	}
+}

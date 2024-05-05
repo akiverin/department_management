@@ -58,3 +58,27 @@
 	display: flex;
 	margin-top: 24px;
 }
+
+@media (max-width: 1200px) {
+	.review__content {
+		display: grid;
+		grid-template-columns: 7fr 9fr;
+		column-gap: 80px;
+	}
+}
+
+@media (max-width: 640px) {
+	.review {
+		border-radius: 64px;
+	}
+
+	.review__wrapper {
+		padding-top: 64px;
+	}
+	.review__content {
+		display: grid;
+		grid-template-columns: 1fr;
+		column-gap: 10px;
+		row-gap: 10px;
+	}
+}

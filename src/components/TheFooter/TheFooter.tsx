@@ -103,7 +103,7 @@ function TheFooter() {
 							</li>
 						</ul>
 					</div>
-					<div className="footer__col">
+					<div className="footer__col footer__col--path">
 						<div className="footer__despatch despatch">
 							<h6 className="despatch__title">Авторизация</h6>
 							<Link className="despatch__link" to="/my">

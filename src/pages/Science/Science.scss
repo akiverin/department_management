@@ -24,7 +24,6 @@
 	grid-template-columns: repeat(auto-fill, minmax(580px, 1fr));
 	max-width: 100%;
 	gap: 10px;
-	justify-items: center;
 }
 
 .science__event {
@@ -34,8 +33,30 @@
 @media screen and (max-width: 780px) {
 	.science__card {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 		max-width: 100%;
 		gap: 10px;
+	}
+
+	.science__events {
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		gap: 10px;
+	}
+
+	.science__wrapper {
+		max-width: 1600px;
+		margin: 0 auto;
+		padding: 40px 40px 20px;
+	}
+
+	.science__title {
+		font-size: 4.4rem;
+		line-height: 1.2;
+		font-weight: 400;
+		margin: 40px 0px 32px;
+	}
+
+	.science__event {
+		height: 360px;
 	}
 }

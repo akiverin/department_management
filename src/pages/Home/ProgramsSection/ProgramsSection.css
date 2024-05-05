@@ -48,7 +48,7 @@
 
 .programs__help-programs {
     display: flex;
-    width: 940px;
+    max-width: 940px;
     margin: 24px auto 0;
     align-items: center;
     gap: 100px;
@@ -79,5 +79,19 @@
 
 .help-programs__actions {
     display: flex;
-    gap: 30px;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 10px;
+}
+
+@media (max-width: 1200px) {
+    .help-programs {
+        flex-wrap: wrap;
+        gap: 18px;
+        justify-content: space-between;
+    }
+
+    .help-programs__info {
+        min-width: 300px;
+    }
 }
