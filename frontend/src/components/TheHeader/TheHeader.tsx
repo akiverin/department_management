@@ -3,7 +3,7 @@ import logo from '@assets/logo.svg'
 import TheButton from '../TheButton/TheButton'
 import { Link, useLocation } from 'react-router-dom'
 
-function TheHeader() {
+function TheHeader({ showAuth }: { showAuth: () => void }) {
 	const location = useLocation()
 	return (
 		<header className="header">
@@ -93,8 +93,8 @@ function TheHeader() {
 					</li>
 				</ul>
 			</nav>
-			<TheButton href="/contact" border mini>
-				Связаться
+			<TheButton onClick={showAuth} border mini>
+				Войти
 			</TheButton>
 		</header>
 	)

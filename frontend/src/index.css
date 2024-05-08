@@ -46,6 +46,15 @@ html {
   color: #000000;
 }
 
+html,
+body {
+}
+
+body.scroll-lock {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;

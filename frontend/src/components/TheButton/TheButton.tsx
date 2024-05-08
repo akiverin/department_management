@@ -14,7 +14,8 @@ function TheButton({
 	full,
 	dark,
 	light,
-	gray
+	gray,
+	type
 }: ButtonProps) {
 	const buttonClass =
 		'button' +
@@ -27,7 +28,7 @@ function TheButton({
 		(light ? ' button--light' : '') +
 		(gray ? ' button--gray' : '')
 	return onClick ? (
-		<button onClick={onClick} className={buttonClass}>
+		<button onClick={onClick} className={buttonClass} type={type}>
 			{children}
 		</button>
 	) : to ? (
@@ -54,6 +55,7 @@ type ButtonProps = {
 	dark?: boolean
 	light?: boolean
 	gray?: boolean
+	type?: 'submit' | 'reset' | undefined
 }
 
 export default TheButton

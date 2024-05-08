@@ -12,7 +12,9 @@ import Programs from '@pages/Programs/Programs'
 import NotFound from '@pages/NotFound/NotFound'
 import TheFooter from '@components/TheFooter/TheFooter'
 import Science from '@pages/Science/Science'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
+import TheDialog from './components/TheDialog/TheDialog'
+import AuthDialog from './components/AuthDialog/AuthDialog'
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
 	const location = useLocation()
 	useLayoutEffect(() => {
@@ -22,10 +24,14 @@ const Wrapper = ({ children }: { children: React.ReactNode }) => {
 }
 
 function App() {
+	const [isOpenAuth, setIsOpenAuth] = useState(false)
+	const showAuth = () => {
+		setIsOpenAuth(true)
+	}
 	return (
 		<Router>
 			<Wrapper>
-				<TheHeader />
+				<TheHeader showAuth={showAuth} />
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/programs" element={<Programs />} />
@@ -33,6 +39,9 @@ function App() {
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 				<TheFooter />
+				<TheDialog isOpen={isOpenAuth} onClose={() => setIsOpenAuth(false)}>
+					<AuthDialog />
+				</TheDialog>
 			</Wrapper>
 		</Router>
 	)
