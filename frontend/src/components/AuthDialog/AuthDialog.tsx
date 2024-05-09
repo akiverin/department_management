@@ -1,6 +1,9 @@
 import React, { useState, FormEvent } from 'react'
 import './AuthDialog.scss'
 import TheButton from '../TheButton/TheButton'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import toast, { Toaster } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 interface User {
 	email?: string
@@ -9,7 +12,11 @@ interface User {
 	password: string
 }
 
-const AuthDialog: React.FC = () => {
+interface Props {
+	close: () => void
+}
+
+const AuthDialog: React.FC<Props> = ({ close }) => {
 	const [isLogin, setIsLogin] = useState(true)
 	const [user, setUser] = useState<User>({ username: '', password: '' })
 
@@ -17,18 +24,50 @@ const AuthDialog: React.FC = () => {
 		setUser({ ...user, [e.target.name]: e.target.value })
 	}
 
+	const queryClient = useQueryClient()
+	const navigate = useNavigate()
+
+	const {
+		mutate: auth,
+		isError,
+		isPending,
+		error
+	} = useMutation({
+		mutationFn: async () => {
+			try {
+				const url = isLogin ? '/api/auth/login' : '/api/auth/signup'
+				const res = await fetch(url, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(user)
+				})
+				const data = await res.json()
+				if (data.error) throw new Error(data.error)
+				return data
+			} catch (error) {
+				throw new Error(
+					error instanceof Error ? error.message : 'An unknown error occurred'
+				)
+			}
+		},
+		onSuccess: () => {
+			toast.success(isLogin ? 'Вы вошли в аккаунт' : 'Аккаунт успешно создан')
+			queryClient.invalidateQueries({ queryKey: ['authUser'] })
+			navigate('/profile')
+			close()
+		},
+		onError: error => {
+			toast.error(
+				error instanceof Error ? error.message : 'An unknown error occurred'
+			)
+		}
+	})
+
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault()
-		const url = isLogin ? '/api/auth/login' : '/api/auth/signup'
-		const response = await fetch(url, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(user)
-		})
-		const data = await response.json()
-		console.log(response.status, data)
+		auth()
 	}
 
 	const toggleMode = () => {
@@ -38,6 +77,12 @@ const AuthDialog: React.FC = () => {
 				? { ...user, username: '', password: '' }
 				: { ...user, username: '', password: '', email: '', fullName: '' }
 		)
+	}
+
+	const navigatePrivacy = (e: React.MouseEvent) => {
+		e.preventDefault()
+		close()
+		navigate('/privacy')
 	}
 
 	return (
@@ -101,9 +146,26 @@ const AuthDialog: React.FC = () => {
 						onChange={handleInputChange}
 					/>
 				</div>
+				{isError && <p className="auth-form__error">{error.message}</p>}
 				<div className="auth-form__action">
-					<TheButton onClick={() => handleSubmit} accent type="submit">
-						{isLogin ? 'Войти' : 'Зарегистрироваться'}
+					{!isLogin && (
+						<p className="auth-form__privacy">
+							Нажимая на кнопку «Зарегистрироваться», вы даете{' '}
+							<button
+								className="auth-form__privacy-button"
+								onClick={navigatePrivacy}
+							>
+								согласие
+							</button>{' '}
+							на обработку персональных данных.
+						</p>
+					)}
+					<TheButton onClick={() => handleSubmit} accent mini type="submit">
+						{isPending
+							? 'Загрузка...'
+							: isLogin
+								? 'Войти'
+								: 'Зарегистрироваться'}
 					</TheButton>
 				</div>
 			</form>
@@ -115,6 +177,11 @@ const AuthDialog: React.FC = () => {
 					{isLogin ? 'Зарегистрируйтесь' : 'Войти в аккаунт'}
 				</button>
 			</div>
+			<Toaster
+				containerStyle={{
+					fontSize: '1.4rem'
+				}}
+			/>
 		</>
 	)
 }

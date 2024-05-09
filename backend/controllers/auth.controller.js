@@ -9,23 +9,27 @@ export const signup = async (req, res) => {
     const emailRegex =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ error: "Invalid email format" });
+      return res
+        .status(400)
+        .json({ error: "Неверный формат электронной почты" });
     }
 
     const existingUser = await User.findOne({ username });
     if (existingUser) {
-      return res.status(400).json({ error: "Username is already taken" });
+      return res.status(400).json({ error: "Имя пользователя уже занято" });
     }
 
     const existingEmail = await User.findOne({ email });
     if (existingEmail) {
-      return res.status(400).json({ error: "Email is already taken" });
+      return res
+        .status(400)
+        .json({ error: "Электронная почта уже зарегистрирована" });
     }
 
     if (password.length < 6) {
       return res
         .status(400)
-        .json({ error: "Password must be at least 6 characters long" });
+        .json({ error: "Пароль должен состоять не менее чем из 6 символов" });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -69,7 +73,9 @@ export const login = async (req, res) => {
     );
 
     if (!user || !isPasswordCorrect) {
-      return res.status(400).json({ error: "Invalid username or password" });
+      return res
+        .status(400)
+        .json({ error: "Неверное имя пользователя или пароль" });
     }
 
     generateTokenAndSetCookie(user._id, res);
@@ -84,7 +90,7 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log("Error in login controller", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Внутренняя ошибка сервера" });
   }
 };
 
@@ -92,11 +98,11 @@ export const logout = async (req, res) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });
     res.status(200).json({
-      message: "Logged out successfully",
+      message: "Успешный выход из системы",
     });
   } catch (error) {
     console.log("Error in logout controller", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Внутренняя ошибка сервера" });
   }
 };
 
@@ -106,6 +112,6 @@ export const getMe = async (req, res) => {
     res.status(200).json(user);
   } catch (error) {
     console.log("Error in getMe controller", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Внутренняя ошибка сервера" });
   }
 };
